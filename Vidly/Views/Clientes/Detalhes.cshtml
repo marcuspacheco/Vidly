@@ -1,0 +1,15 @@
+﻿@model Vidly.Models.Cliente
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Nome</h1>
+<ul>
+    <li>Tipo de Assinatura: @Model.TipoAssinatura.Nome</li>
+    @if (@Model.DataNascimento.HasValue)
+    {
+        <li>Data de Nascimento: @Model.DataNascimento.Value.ToString("dd/MM/yyyy")</li>
+    }
+</ul>
