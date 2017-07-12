@@ -17,6 +17,7 @@ else
             <thead>
                 <tr>
                     <th>Cliente</th>
+                    <th>Tipo de Assinatura</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@ else
                 {
                     <tr>
                         <td>@Html.ActionLink(cliente.Nome, "Detalhes", "Clientes", new { id = cliente.Id }, null)</td>
+                        <td>@cliente.TipoAssinatura.Nome</td>
                     </tr>
                 }
             </tbody>

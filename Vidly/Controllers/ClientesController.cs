@@ -1,35 +1,39 @@
 ﻿using System.Linq;
 using Vidly.Models;
 using System.Web.Mvc;
-using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
     public class ClientesController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public ClientesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+            base.Dispose(disposing);
+        }
+
         public ViewResult Index()
         {
-            var clientes = RetornaClientes();
+            var clientes = _context.Clientes.Include(c => c.TipoAssinatura);
             return View(clientes);
         }
 
         public ActionResult Detalhes(int id)
         {
-            var cliente = RetornaClientes().SingleOrDefault(c => c.Id == id);
+            var cliente = _context.Clientes.Include(c => c.TipoAssinatura).SingleOrDefault(c => c.Id == id);
 
             if (cliente == null)
                 return HttpNotFound("Cliente não encontrado!");
 
             return View(cliente);
-        }
-
-        private IEnumerable<Cliente> RetornaClientes()
-        {
-            return new List<Cliente>
-            {
-                new Cliente { Id = 1, Nome = "Cliente 1" },
-                new Cliente { Id = 2, Nome = "Cliente 2" }
-            };
         }
     }
 }

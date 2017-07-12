@@ -212,10 +212,35 @@
     <Compile Include="Migrations\201707122002560_PopularTipoAssinatura.Designer.cs">
       <DependentUpon>201707122002560_PopularTipoAssinatura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707122014563_AnotacoesCliente.cs" />
+    <Compile Include="Migrations\201707122014563_AnotacoesCliente.Designer.cs">
+      <DependentUpon>201707122014563_AnotacoesCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707122026136_TipoAssinaturas.cs" />
+    <Compile Include="Migrations\201707122026136_TipoAssinaturas.Designer.cs">
+      <DependentUpon>201707122026136_TipoAssinaturas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707122048546_AdicionarNomeTipoAssinatura.cs" />
+    <Compile Include="Migrations\201707122048546_AdicionarNomeTipoAssinatura.Designer.cs">
+      <DependentUpon>201707122048546_AdicionarNomeTipoAssinatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707122049268_NomesTipoAssinatura.cs" />
+    <Compile Include="Migrations\201707122049268_NomesTipoAssinatura.Designer.cs">
+      <DependentUpon>201707122049268_NomesTipoAssinatura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707122056413_AdicionarDataNascimentoCliente.cs" />
+    <Compile Include="Migrations\201707122056413_AdicionarDataNascimentoCliente.Designer.cs">
+      <DependentUpon>201707122056413_AdicionarDataNascimentoCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707122111470_AdicionarCamposFilme.cs" />
+    <Compile Include="Migrations\201707122111470_AdicionarCamposFilme.Designer.cs">
+      <DependentUpon>201707122111470_AdicionarCamposFilme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Filme.cs" />
+    <Compile Include="Models\Genero.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TipoAssinatura.cs" />
@@ -318,6 +343,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707122002560_PopularTipoAssinatura.resx">
       <DependentUpon>201707122002560_PopularTipoAssinatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707122014563_AnotacoesCliente.resx">
+      <DependentUpon>201707122014563_AnotacoesCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707122026136_TipoAssinaturas.resx">
+      <DependentUpon>201707122026136_TipoAssinaturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707122048546_AdicionarNomeTipoAssinatura.resx">
+      <DependentUpon>201707122048546_AdicionarNomeTipoAssinatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707122049268_NomesTipoAssinatura.resx">
+      <DependentUpon>201707122049268_NomesTipoAssinatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707122056413_AdicionarDataNascimentoCliente.resx">
+      <DependentUpon>201707122056413_AdicionarDataNascimentoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707122111470_AdicionarCamposFilme.resx">
+      <DependentUpon>201707122111470_AdicionarCamposFilme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

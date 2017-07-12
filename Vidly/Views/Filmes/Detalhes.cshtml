@@ -6,3 +6,9 @@
 }
 
 <h1>@Model.Nome</h1>
+<ul>
+    <li>Gênero: @Model.Genero.Nome</li>
+    <li>Data de Lançamento: @Model.DataDeLancamento.ToString("dddd, dd/MM/yyyy")</li>
+    <li>Data Adicionado: @Model.DataAdicionado.ToString("dddd, dd/MM/yyyy")</li>
+    <li>Quantidade em Estoque: @Model.NumeroEmEstoque</li>
+</ul>

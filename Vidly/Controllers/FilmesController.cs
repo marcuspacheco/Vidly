@@ -1,22 +1,26 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Vidly.Models;
 using System.Web.Mvc;
 using Vidly.ViewModels;
-using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
     public class FilmesController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public FilmesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         // GET: Filmes/Aleatorio
         public ActionResult Aleatorio()
         {
-            var filme = new Filme() { Nome = "Shrek!" };
-            var clientes = new List<Cliente>
-            {
-                new Cliente{ Nome = "Cliente 1" },
-                new Cliente{ Nome = "Cliente 2" },
-            };
+            var filme = _context.Filmes.ElementAt(new Random().Next(_context.Filmes.Count()));
+            var clientes = _context.Clientes.ToList();
 
             var viewModel = new FilmeAleatorioViewModel
             {
@@ -29,27 +33,18 @@ namespace Vidly.Controllers
 
         public ViewResult Index()
         {
-            var filmes = RetornaFilmes();
+            var filmes = _context.Filmes.Include(f => f.Genero);
             return View(filmes);
         }
 
         public ActionResult Detalhes(int id)
         {
-            var cliente = RetornaFilmes().SingleOrDefault(c => c.Id == id);
+            var filme = _context.Filmes.Include(f => f.Genero).SingleOrDefault(c => c.Id == id);
 
-            if (cliente == null)
+            if (filme == null)
                 return HttpNotFound("Filme não encontrado!");
 
-            return View(cliente);
-        }
-
-        private IEnumerable<Filme> RetornaFilmes()
-        {
-            return new List<Filme>
-            {
-                new Filme { Id = 1, Nome = "Filme 1" },
-                new Filme { Id = 2, Nome = "Filme 2" }
-            };
+            return View(filme);
         }
     }
 }
