@@ -1,0 +1,51 @@
+@model Vidly.ViewModels.ClienteFormularioViewModel
+@{
+    ViewBag.Title = "Novo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (@Model.Cliente.Id == 0)
+{
+    <h2>Novo Cliente</h2>
+}
+else
+{
+    <h2>Editar Cliente</h2>
+}
+
+@using (Html.BeginForm("Salvar", "Clientes"))
+{
+    @Html.ValidationSummary(true, "Corrija os erros abaixo.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cliente.Nome)
+        @Html.TextBoxFor(m => m.Cliente.Nome, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Cliente.Nome)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cliente.TipoAssinaturaId)
+        @Html.DropDownListFor(m => m.Cliente.TipoAssinaturaId, new SelectList(Model.TipoAssinaturas, "Id", "Nome"), "Selecione o tipo de assinatura", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Cliente.TipoAssinaturaId)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cliente.DataNascimento)
+        @Html.TextBoxFor(m => m.Cliente.DataNascimento, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Cliente.DataNascimento)
+    </div>
+
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Cliente.EhInscritoNaNewsletter) Inscrito na Newsletter?
+        </label>
+    </div>
+
+    @Html.HiddenFor(m => m.Cliente.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

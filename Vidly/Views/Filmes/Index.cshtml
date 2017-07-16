@@ -6,6 +6,12 @@
 }
 
 <h2>Filmes</h2>
+
+@using (Html.BeginForm("Novo", "Filmes"))
+{
+    <button type="submit" class="btn btn-raised btn-primary">NOVO FILME</button>
+}
+<br />
 @if (!Model.Any())
 {
     <p>Nenhum filme cadastrado.</p>
@@ -24,7 +30,7 @@ else
                 @foreach (var filme in Model)
                 {
                     <tr>
-                        <td>@Html.ActionLink(filme.Nome, "Detalhes", "Filmes", new { id = filme.Id }, null)</td>
+                        <td>@Html.ActionLink(filme.Nome, "Editar", "Filmes", new { id = filme.Id }, null)</td>
                         <td>@filme.Genero.Nome</td>
                     </tr>
                 }

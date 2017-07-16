@@ -11,5 +11,7 @@ namespace Vidly.Models
         public byte DuracaoEmMeses { get; set; }
         public byte PorcentagemDesconto { get; set; }
 
+        public static readonly byte Desconhecido = 0;
+        public static readonly byte Avulso = 1;
     }
 }

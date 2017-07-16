@@ -23,6 +23,8 @@ namespace Vidly.Models
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Filme> Filmes { get; set; }
+        public DbSet<TipoAssinatura> TipoAssinaturas { get; set; }
+        public DbSet<Genero> Generos { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
